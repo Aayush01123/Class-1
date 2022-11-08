@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2022 at 06:56 AM
+-- Generation Time: Nov 08, 2022 at 01:53 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `class student`
+-- Database: `school`
 --
 
 -- --------------------------------------------------------
@@ -28,30 +28,23 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `student` (
-  `SN` int(11) NOT NULL,
-  `NAME` varchar(255) NOT NULL,
-  `Roll` varchar(255) NOT NULL,
-  `Gender` varchar(255) NOT NULL,
-  `Address` varchar(255) NOT NULL,
-  `Section` varchar(255) NOT NULL
+  `Id` int(11) NOT NULL,
+  `Name` varchar(100) DEFAULT NULL,
+  `District` varchar(100) DEFAULT NULL,
+  `gender` enum('M','f','O') DEFAULT NULL,
+  `dob` date DEFAULT NULL,
+  `total_fee` float DEFAULT NULL,
+  `paid_fee` float DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`SN`, `NAME`, `Roll`, `Gender`, `Address`, `Section`) VALUES
-(1, 'Hari', '10', 'male', 'Boudha', 'A');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `student`
---
-ALTER TABLE `student`
-  ADD UNIQUE KEY `SN` (`SN`);
+INSERT INTO `student` (`Id`, `Name`, `District`, `gender`, `dob`, `total_fee`, `paid_fee`) VALUES
+(1, 'Aayush Tiruwa', 'Kathmandu', 'M', '2003-09-12', 5000, 2000),
+(2, 'Harry', 'Kathmandu', 'M', '2003-09-12', 6000, 21000),
+(3, 'Alina', 'U.S.A', 'f', '1993-09-12', 6000, 21000);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
